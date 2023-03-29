@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tree</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+.tree{
+    height: max-content;
+    width: 1315px;
+    overflow-x: scroll;
+}
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+
+.tree li::before,
+.tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 1px solid #1D3684;
+    width: 50%;
+    height: 20px;
+}
+
+.tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid #1D3684;
+}
+
+.tree li:only-child::after,
+.tree li:only-child::before {
+    display: none;
+}
+
+.tree li:only-child {
+    padding-top: 0;
+}
+
+.tree li:first-child::before,
+.tree li:last-child::after {
+    border: 0 none;
+}
+
+.tree li:last-child::before {
+    border-right: 1px solid #1D3684;
+    border-radius: 0 5px 0 0;
+    -webkit-border-radius: 0 5px 0 0;
+    -moz-border-radius: 0 5px 0 0;
+}
+
+.tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+    -webkit-border-radius: 5px 0 0 0;
+    -moz-border-radius: 5px 0 0 0;
+}
+
+.tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid #1D3684;
+    width: 0;
+    height: 20px;
+}
+
+.tree li a {
+    border: 1px solid #1D3684;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #1D3684;
+    color: white;
+    font-family: arial, verdana, tahoma;
+    font-size: 11px;
+    display: inline-block;
+    width: 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+#parent{
+    width: max-content;
+    padding: 10px;
+}
+#child{
+    width: max-content;
+    padding: 10px;
+}
+#gchild{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    padding: 10px;
+}
+.tree li a:hover,
+.tree li a:hover+ul li a {
+    background: #6EC1E4;
+    color: #000;
+    border: 1px solid #6EC1E4;
+}
+
+/*Connector styles on hover*/
+.tree li a:hover+ul li::after,
+.tree li a:hover+ul li::before,
+.tree li a:hover+ul::before,
+.tree li a:hover+ul ul::before {
+    border-color: #6EC1E4;
+}
+#parentUL::before{
+    height: 177px;
+}
+#side::after{
+    border-left: none;
+}
+#pad::before{
+    height: 120px;
+}
+
+/* Normal - #1D3684 */
+/* Hover - #6EC1E4 */
+    </style>
+</head>
+<body>
+    <div class="tree">
+  <ul >
+    <li>
+      <a href="#" id="parent">Chairman & Managing Director</a>
+      <ul style="padding-top: 177px;" id="parentUL">
+        
+        <li>
+          <a href="#" id="child">Director (Personnel)</a>
+          <ul>
+            <li><a href="#" id="gchild">CGM (Technical)</a></li>
+            <li>
+              <a href="#" id="gchild">CGM (BB, DEP & SR)</a>
+              <ul>
+                <li>
+                  <a href="#" id="gchild">AGM (I/c) DEP</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#" id="gchild">CGM (CP & CC)</a></li>
+            <li><a href="#" id="gchild">GM (HR&A)</a></li>
+            <li><a href="#" id="gchild">GM (ER & LEGAL)</a></li>
+            <li><a href="#" id="gchild">AGM (I/c) RO DELHI</a></li>
+          </ul>
+        </li>
+        <li style="position:absolute; top: 20px; left: 50%;" id="side">
+            <a href="#" style="position: relative;left: 113%;top: -32px;">CVO</a>
+            
+          </li>
+          <li style="position:absolute; top: 57px; left: 50%;" id="side">
+            <a href="#" style="position: relative;left: 113%;top: -38px;">CO. SEC</a>
+            
+          </li>
+          <li style="position:absolute; top: 100px; left: 50%;" id="side">
+            <a href="#" style="position: relative;left: 113%;top: -38px;">AGM (IA)</a>
+            
+          </li>
+          <li style="position:absolute; top: 144px; left: 50%;" id="side">
+            <a href="#"  style="position: relative;left: 113%;top: -38px;">GM (QA)</a>
+            
+          </li>
+          <li>
+            <a href="#" id="child">Director (Finance)</a>
+            <ul>
+              <li>
+                <a href="#" id="gchild">GM (F)</a>
+              </li>
+            </ul>
+          </li>
+        <li>
+          
+          <a href="#" id="child">Director (Shipbuilding)</a>
+          <ul style="padding-top: 120px;" id="pad">
+            <li><a href="#" id="gchild">CGM (PP&CC)</a></li>
+            <li>
+              <a href="#" id="gchild">CGM (MW)</a>
+              
+            </li>
+            <li><a href="#" id="gchild">GM (RBD)</a></li>
+            <li><a href="#" id="gchild">CGM (IND &PS–NGOPV)</a></li>
+            <li><a href="#" id="gchild">GM (COMM)</a></li>
+            <li><a href="#" id="gchild">GM (FOJ & TU)</a></li>
+            <li><a href="#" id="gchild">GM (DESIGN)</a></li>
+            <li><a href="#" id="gchild">GM (CC&VD)</a></li>
+            <li><a href="#" id="gchild">AGM (I/c) RO MUMBAI</a></li>
+            <li><a href="#" id="gchild">AGM PS-P17A</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </li>
+  </ul>
+</div>
+</body>
+</html>
